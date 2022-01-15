@@ -14,7 +14,9 @@ class HomeDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     // ignore: duplicate_ignore
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
       backgroundColor: MyTheme.creamColor,
       bottomNavigationBar:  Container(
         color:Colors.white,
@@ -32,8 +34,8 @@ class HomeDetailPage extends StatelessWidget {
                   shape: MaterialStateProperty.all(
                     StadiumBorder(),
                   )),
-              child: "Buy".text.make(),
-            ).wh(100,50)
+              child: "Add to Cart".text.make(),
+            ).wh(120,50)
           ],
         ).p32(),
       ),
@@ -54,15 +56,18 @@ class HomeDetailPage extends StatelessWidget {
                child: Container(
                  color: Colors.white,
                  width:context.screenWidth,
-                 child:Column(
-                   children: [
-                    catalog.name.text.xl4
-                            .color(MyTheme.darkBluishColor)
-                            .bold
-                            .make(),
-                        catalog.desc.text.xl.make(),
-                        10.heightBox,
-                 ],).py(64)
+                 child:SingleChildScrollView(
+                   child: Column(
+                     children: [
+                      catalog.name.text.xl4
+                              .color(MyTheme.darkBluishColor)
+                              .bold
+                              .make(),
+                          catalog.desc.text.xl.make(),
+                          10.heightBox,
+                          "Rebum et invidunt no et no sadipscing lorem est et dolores, diam at dolores at sea dolores sea. Eos eos.".text.make().p16()
+                   ],).py(64),
+                 )
                  
                  ),
              )

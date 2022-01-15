@@ -21,6 +21,7 @@ class ItemWidget extends StatelessWidget {
         title:Text(item.name),
         subtitle: Text(item.desc),
         trailing: Text("\$${item.price}",
+        textScaleFactor: 1.5,
          style:TextStyle(
            color: Colors.black,
            fontWeight: FontWeight.bold,

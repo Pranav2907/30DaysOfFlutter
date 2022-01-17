@@ -1,8 +1,7 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, duplicate_ignore, prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables, duplicate_ignore, prefer_const_constructors, deprecated_member_use
 
 import "package:flutter/material.dart";
 import 'package:flutter_catalog/models/catalog.dart';
-import 'package:flutter_catalog/widgets/themes.dart';
 import "package:velocity_x/velocity_x.dart";
 
 // ignore: use_key_in_widget_constructors
@@ -17,9 +16,9 @@ class HomeDetailPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
       ),
-      backgroundColor: MyTheme.creamColor,
+      backgroundColor: context.canvasColor,
       bottomNavigationBar:  Container(
-        color:Colors.white,
+        color:context.cardColor,
         child: ButtonBar(
           alignment: MainAxisAlignment.spaceBetween,
           buttonPadding: EdgeInsets.zero,
@@ -29,7 +28,7 @@ class HomeDetailPage extends StatelessWidget {
               onPressed: () {},
               style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(
-                    MyTheme.darkBluishColor,
+                    context.theme.buttonColor,
                   ),
                   shape: MaterialStateProperty.all(
                     StadiumBorder(),
@@ -54,13 +53,13 @@ class HomeDetailPage extends StatelessWidget {
                arcType: VxArcType.CONVEY,
                edge: VxEdge.TOP, 
                child: Container(
-                 color: Colors.white,
+                 color: context.cardColor,
                  width:context.screenWidth,
                  child:SingleChildScrollView(
                    child: Column(
                      children: [
                       catalog.name.text.xl4
-                              .color(MyTheme.darkBluishColor)
+                              .color(context.accentColor)
                               .bold
                               .make(),
                           catalog.desc.text.xl.make(),

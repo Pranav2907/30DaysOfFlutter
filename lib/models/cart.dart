@@ -1,10 +1,16 @@
 
 
-// ignore_for_file: unused_field, unnecessary_null_comparison
+// ignore_for_file: unused_field, unnecessary_null_comparison, non_constant_identifier_names
 
 import 'package:flutter_catalog/models/catalog.dart';
 
 class CartModel {
+
+  static final cartModel = CartModel._internal(); 
+
+  CartModel._internal(); 
+
+  factory CartModel() => cartModel;
   //catalog field
 late CatalogModel _catalog; /// check this once
   

@@ -2,7 +2,11 @@
 
 // ignore_for_file: unused_field, unnecessary_null_comparison, non_constant_identifier_names
 
+
+
+import 'package:flutter_catalog/core/store.dart';
 import 'package:flutter_catalog/models/catalog.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class CartModel {
 
@@ -27,14 +31,22 @@ late CatalogModel _catalog; /// check this once
   // Get total Price
   num get totalPrice => items.fold(0, (total, current) => total+current.price);
 
-  //Add item
-
-  void add(Item item){
-    _itemIds.add(item.id);
-  }
+  
 
   //revmove item
   void remove(Item item){
     _itemIds.remove(item.id);
+  }
+}
+
+
+class AddMutation extends VxMutation<MyStore>{
+  final Item item ;
+  
+
+  AddMutation(this.item);
+  @override
+  perform() {
+    store?.cart._itemIds.add(item.id) ;
   }
 }
